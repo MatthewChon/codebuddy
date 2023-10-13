@@ -54,13 +54,17 @@
     height: var(--problem-statement-container-height);
 }
 #problem-category-container,
-#code-editor {
+#code-editor-container {
     height: 100%;
     border: 1px solid rgb(0,0,0);
 }
 #problem-category-container {
     width: var(--problem-category-container-width);
 }
-#code-editor {
+#code-editor-container {
     width: var(--code-editor-width);
+    padding: 1%;
+}
+#code-editor {
+    height: 100%;
 }
