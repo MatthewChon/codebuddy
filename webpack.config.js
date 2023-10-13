@@ -1,8 +1,17 @@
-var path = require('path');
+const path = require('path');
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
+
+
+const isDevelopment = process.env.NODE_ENV !== 'production';
 
 module.exports = {
-    entry: './src/main/js/app.js',
+    entry: {
+        app: './src/main/js/app.js',
+    },
     devtool: 'sourcemaps',
+    resolve: {
+		extensions: ['*', '.js', '.jsx', '.tsx', '.ts']
+	},
     cache: true,
     mode: 'development',
     output: {
@@ -11,16 +20,27 @@ module.exports = {
     },
     module: {
         rules: [
-            {
-                test: path.join(__dirname, '.'),
-                exclude: /(node_modules)/,
-                use: [{
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ["@babel/preset-env", "@babel/preset-react"]
-                    }
-                }]
-            }
-        ]
-    }
+			{
+				test: /\.(js|jsx|tsx|ts)$/,
+				exclude: /node_modules/,
+				use: [
+					{
+						loader: require.resolve('babel-loader'),
+						options: {
+							presets: ['@babel/preset-env', '@babel/preset-typescript', '@babel/preset-react'],
+						}
+					}
+				]
+			},
+			{
+				test: /\.css$/,
+				use: ['style-loader', 'css-loader']
+			},
+			{
+				test: /\.ttf$/,
+				use: ['file-loader']
+			}
+		]
+    },
+	plugins: [new MonacoWebpackPlugin()],
 };
