@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+:root {
+    /*======= content container =======*/
+    --content-container-height: 97vh;
+    --content-container-width: 98vw;
+    /*--- end content container ---*/
+
+    /*======= environment settings container =======*/
+    --environment-settings-container-width: 100%;
+    --environment-settings-container-height: 7%;
+    /*--- end environment settings container ---*/
+
+    /*======= problem statement container =======*/
+    --problem-statement-container-width: 100%;
+    --problem-statement-container-height: 90%;
+    /*--- end problem statement container ---*/
+
+    /*======= problem category / code editor =======*/
+    --problem-statement-width: .394;
+    --problem-total-spacing: calc(var(--content-container-width)*.01);
+    --problem-category-container-width: calc(var(--content-container-width) * var(--problem-statement-width));
+    --code-editor-width: calc(var(--content-container-width) - var(--problem-category-container-width) - var(--problem-total-spacing));
+    /*--- end problem category / code editor ---*/
+}
+#app-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+#content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: var(--content-container-height);
+    width: var(--content-container-width);
+
+    padding: .2rem;
+    box-shadow: 0 0 5px 1px rgb(133, 133, 133);
+}
+#environment-settings-container {
+    width: var(--environment-settings-container-width);
+    height: var(--environment-settings-container-height);
+}
+#problem-statement-container {
+    display: flex;
+    justify-content: space-evenly;
+    width: var(--problem-statement-container-width);
+    height: var(--problem-statement-container-height);
+}
+#problem-category-container,
+#code-editor {
+    height: 100%;
+    border: 1px solid rgb(0,0,0);
+}
+#problem-category-container {
+    width: var(--problem-category-container-width);
+}
+#code-editor {
+    width: var(--code-editor-width);
+}
