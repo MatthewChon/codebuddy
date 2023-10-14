@@ -3,6 +3,7 @@
     padding: 0;
 }
 :root {
+    /*======= =======*/
     /*======= content container =======*/
     --content-container-height: 97vh;
     --content-container-width: 98vw;
@@ -15,7 +16,7 @@
 
     /*======= problem statement container =======*/
     --problem-statement-container-width: 100%;
-    --problem-statement-container-height: 90%;
+    --statement-container-height: 90%;
     /*--- end problem statement container ---*/
 
     /*======= problem category / code editor =======*/
@@ -24,6 +25,10 @@
     --problem-category-container-width: calc(var(--content-container-width) * var(--problem-statement-width));
     --code-editor-width: calc(var(--content-container-width) - var(--problem-category-container-width) - var(--problem-total-spacing));
     /*--- end problem category / code editor ---*/
+
+    /*======= Programming Language dropdown =======*/
+    --language-dropdown-min-height: 2rem;
+    /*--- End Programming Language dropdown ---*/
 }
 #app-container {
     display: flex;
@@ -43,19 +48,26 @@
     padding: .2rem;
     box-shadow: 0 0 5px 1px rgb(133, 133, 133);
 }
+#title-page-container {
+    min-height: 100%;
+    width: 100%;
+}
 #environment-settings-container {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
     width: var(--environment-settings-container-width);
     height: var(--environment-settings-container-height);
 }
 #problem-statement-container {
     display: flex;
     justify-content: space-evenly;
+    height: var(--statement-container-height);
     width: var(--problem-statement-container-width);
-    height: var(--problem-statement-container-height);
 }
 #problem-category-container,
 #code-editor-container {
-    height: 100%;
+    height: auto;
     border: 1px solid rgb(0,0,0);
 }
 #problem-category-container {
@@ -66,5 +78,16 @@
     padding: 1%;
 }
 #code-editor {
+    height: 90%;
+}
+#code-editor-section-container {
+    display: flex;
+    align-items: center;
+    width: var(--code-editor-width);
     height: 100%;
+}
+#language-dropdown {
+    text-transform: capitalize;
+    width: 15%;
+    min-height: var(--language-dropdown-min-height);
 }
