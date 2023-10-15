@@ -2,21 +2,33 @@
     margin: 0;
     padding: 0;
 }
+html, body {
+    overflow: hidden;
+}
 :root {
+    /*======= title page container =======*/
+    --title-page-section-border-color: rgb(228, 228, 228);
+    /*--- end title page container ---*/
+
     /*======= content container =======*/
     --content-container-height: 97vh;
     --content-container-width: 98vw;
+    --content-container-box-color: rgb(133, 133, 133);
     /*--- end content container ---*/
 
     /*======= environment settings container =======*/
     --environment-settings-container-width: 100%;
-    --environment-settings-container-height: 7%;
+    --environment-settings-container-height: 8%;
     /*--- end environment settings container ---*/
 
     /*======= problem statement container =======*/
     --problem-statement-container-width: 100%;
-    --problem-statement-container-height: 90%;
+    --statement-container-height: 90%;
+    --statement-container-border-color: rgb(37, 37, 73);
     /*--- end problem statement container ---*/
+
+    /*======= interviewer only =======*/
+    /*--- end interviewer only ---*/
 
     /*======= problem category / code editor =======*/
     --problem-statement-width: .394;
@@ -24,6 +36,10 @@
     --problem-category-container-width: calc(var(--content-container-width) * var(--problem-statement-width));
     --code-editor-width: calc(var(--content-container-width) - var(--problem-category-container-width) - var(--problem-total-spacing));
     /*--- end problem category / code editor ---*/
+
+    /*======= Programming Language dropdown =======*/
+    --language-dropdown-min-height: clamp(1.2rem, 1vw, 5rem);
+    /*--- End Programming Language dropdown ---*/
 }
 #app-container {
     display: flex;
@@ -36,14 +52,41 @@
 #content-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     height: var(--content-container-height);
     width: var(--content-container-width);
 
     padding: .2rem;
-    box-shadow: 0 0 5px 1px rgb(133, 133, 133);
+    box-shadow: 0 0 5px 1px var(--content-container-box-color);
 }
+/*--- end app container css ---*/
+
+#title-page-container {
+    min-height: 100%;
+    width: 100%;
+}
+#title-page-section-container {
+    display: flex;
+    width: 100%;
+    min-height: 100%;
+}
+.title-page-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    border: 1px solid var(--title-page-section-border-color);
+}
+.title-page-content {
+    min-height: 40vh;
+}
+/*--- end title page css ---*/
+
 #environment-settings-container {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
     width: var(--environment-settings-container-width);
     height: var(--environment-settings-container-height);
 }
@@ -51,16 +94,58 @@
     display: flex;
     justify-content: space-evenly;
     width: var(--problem-statement-container-width);
-    height: var(--problem-statement-container-height);
+    height: 100%;
 }
 #problem-category-container,
-#code-editor {
-    height: 100%;
-    border: 1px solid rgb(0,0,0);
+#code-editor-container {
+    height: auto;
+    border: 1px solid var(--statement-container-border-color);
 }
 #problem-category-container {
     width: var(--problem-category-container-width);
 }
-#code-editor {
+#code-editor-container {
     width: var(--code-editor-width);
+    padding: 1%;
+}
+#code-editor {
+    height: 90%;
+}
+#code-editor-section-container {
+    display: flex;
+    align-items: center;
+    width: var(--code-editor-width);
+    height: 100%;
+}
+#language-dropdown {
+    text-transform: capitalize;
+    width: 15%;
+    min-height: var(--language-dropdown-min-height);
+}
+/*--- end interviewer/interviewee section ---*/
+#interviewer-structure-container {
+    display: flex;
+    flex-direction: column;
+    min-height: var(--statement-container-height);
+    width: 100%;
+}
+#interviewer-comments {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 30vh;
+    padding: 2px;
+}
+#code-rating {
+}
+.rating-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 .5rem;
+
+}
+.comment {
+    height: 100%;
+    width: 33.2%;
+    border: 1px solid var(--statement-container-border-color);
 }
