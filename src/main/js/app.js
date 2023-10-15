@@ -6,7 +6,7 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 
 const App = (props) => {
-	const [role, setRole] = useState(<TitlePage />);
+	const [role, setRole] = useState(<TitlePage setRole={(userSelection) => setRole(userSelection)} />);
 	return <div id="app-container">
 		<div id="content-container">
 			{role}

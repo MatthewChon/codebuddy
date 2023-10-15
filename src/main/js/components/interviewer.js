@@ -1,3 +1,6 @@
+/**********************************
+ * TODO: finish working on filling in rating section
+ **********************************/
 import React from 'react';
 import { useRef, useState, useEffect } from 'react';
 import * as monaco from 'monaco-editor';
@@ -47,12 +50,36 @@ const InterviewerPOV = (props) => {
 				</div>
 			</li>
 		</nav>
-		<div id="problem-statement-container">
-			<div id="problem-category-container"></div>
-			<div id="code-editor-container">
-				<div id="code-editor" ref={editorRef}></div>
+		<div id="interviewer-structure-container">
+			<div id="problem-statement-container">
+				<div id="problem-category-container"></div>
+				<div id="code-editor-container">
+					<div id="code-editor" ref={editorRef}></div>
+				</div>
+			</div>
+			<div id="interviewer-comments">
+				<form id="code-rating" className="comment">
+					<div className="rating-section">
+						<label for="code-walkthrough-rating">Code Walkthrough</label>
+						<select id="code-walkthrough-rating">
+							<option hidden selected>Select rating</option>
+							<option>Needs Improvement / Everything</option>
+							<option>Needs Improvement / Explanation Vague</option>
+							<option>Nedds Improvement / Hard to follow</option>
+							<option>Satisfactory</option>
+						</select>
+					</div>
+					<div className="rating-section">
+					<label for="code-completeness-rating">Code Completeness</label>
+					<select id="code-completeness-rating">
+					</select>
+					</div>
+				</form>
+				<input type="text" className="comment" />
+				<input type="text" className="comment" />
 			</div>
 		</div>
+		
 	</>
 }
 export default InterviewerPOV;
