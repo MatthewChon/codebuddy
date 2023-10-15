@@ -21,6 +21,9 @@ html, body {
     --environment-settings-container-height: 8%;
     /*--- end environment settings container ---*/
 
+    /*======= timer section =======*/
+    --timer-font-size: clamp(1.2rem, 1.3vw, 5rem);
+    /*--- end timer section ---*/
     /*======= problem statement container =======*/
     --problem-statement-container-width: 100%;
     --statement-container-height: 90%;
@@ -56,7 +59,8 @@ html, body {
     height: var(--content-container-height);
     width: var(--content-container-width);
 
-    padding: .2rem;
+    padding: .3rem;
+    border-radius: 15px;
     box-shadow: 0 0 5px 1px var(--content-container-box-color);
 }
 /*--- end app container css ---*/
@@ -90,6 +94,31 @@ html, body {
     width: var(--environment-settings-container-width);
     height: var(--environment-settings-container-height);
 }
+#problem-section-container {
+    display: flex;
+    width: var(--problem-category-container-width);
+    height: 100%;
+}
+#timer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 30%;
+    & p {
+        font-size: var(--timer-font-size);
+    }
+}
+#timer-controller {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    & button {
+        margin: 0 .2rem;
+    }
+}
+/*--- end navigation section ---*/
 #problem-statement-container {
     display: flex;
     justify-content: space-evenly;
@@ -137,15 +166,28 @@ html, body {
     padding: 2px;
 }
 #code-rating {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.response-section {
+    display: flex;
+    flex-direction: column;
+    width: 33.2%;
 }
 .rating-section {
     display: flex;
     justify-content: space-between;
     padding: 0 .5rem;
-
+    & select {
+        text-align: center;
+    }
+}
+.comment-section {
+    height: 100%;
 }
 .comment {
     height: 100%;
-    width: 33.2%;
     border: 1px solid var(--statement-container-border-color);
+    padding: .2rem;
 }
