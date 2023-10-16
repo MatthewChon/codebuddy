@@ -46,7 +46,8 @@ const InterviewerPOV = (props) => {
 	})
 	const timeFormat = (seconds) => {
 		const hour = Math.floor(seconds / 3600);
-		const min = Math.floor(seconds/60);
+		seconds = seconds % 3600;
+		const min = Math.floor(seconds / 60);
 		const sec = seconds % 60;
 		return `${hour.toString().padStart(2, '0')}:${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`
 	}
@@ -84,7 +85,9 @@ const InterviewerPOV = (props) => {
 		</nav>
 		<div id="interviewer-structure-container">
 			<div id="problem-statement-container">
-				<div id="problem-category-container"></div>
+				<div id="problem-category-container">
+					<textarea id="problem-statement" />
+				</div>
 				<div id="code-editor-container">
 					<div id="code-editor" ref={editorRef}></div>
 				</div>

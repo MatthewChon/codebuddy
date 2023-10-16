@@ -5,14 +5,34 @@
 html, body {
     overflow: hidden;
 }
+textarea {
+    border: none;
+    overflow: auto;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    padding: 5px;
+    box-sizing: border-box;
+}
 :root {
+    /*======= app container =======*/
+    --app-container-bg-color: rgb(47, 54, 67);
+    /*--- end app container ---*/
+
+    /*======= content container =======*/
+    --content-container-bg-color: rgb(221, 224, 224);
+    /*--- end content container ---*/
+    
     /*======= title page container =======*/
     --title-page-section-border-color: rgb(228, 228, 228);
     /*--- end title page container ---*/
 
     /*======= content container =======*/
-    --content-container-height: 97vh;
-    --content-container-width: 98vw;
+    --content-container-height: 95vh;
+    --content-container-width: 97vw;
     --content-container-box-color: rgb(133, 133, 133);
     /*--- end content container ---*/
 
@@ -22,12 +42,15 @@ html, body {
     /*--- end environment settings container ---*/
 
     /*======= timer section =======*/
-    --timer-font-size: clamp(1.2rem, 1.3vw, 5rem);
+    --timer-font-size: clamp(1.2rem, 1.2vw, 5rem);
+    --timer-button-font-size: clamp(.5rem, .7vw, 5rem);
     /*--- end timer section ---*/
+
     /*======= problem statement container =======*/
     --problem-statement-container-width: 100%;
     --statement-container-height: 90%;
-    --statement-container-border-color: rgb(37, 37, 73);
+    --statement-container-border-color: rgb(59, 82, 89);
+    --statement-container-bg-color: rgb(255, 255, 255);
     /*--- end problem statement container ---*/
 
     /*======= interviewer only =======*/
@@ -50,6 +73,7 @@ html, body {
     justify-content: center;
     min-height: 100vh;
     width: 100%;
+    background-color: var(--app-container-bg-color);
 }
 
 #content-container {
@@ -59,9 +83,10 @@ html, body {
     height: var(--content-container-height);
     width: var(--content-container-width);
 
-    padding: .3rem;
+    padding: .4rem;
     border-radius: 15px;
-    box-shadow: 0 0 5px 1px var(--content-container-box-color);
+    background-color: var(--content-container-bg-color);
+    box-shadow: 0 0 2px 2px var(--content-container-bg-color);
 }
 /*--- end app container css ---*/
 
@@ -93,6 +118,7 @@ html, body {
     list-style: none;
     width: var(--environment-settings-container-width);
     height: var(--environment-settings-container-height);
+    background-color: var(--environment-settings-bg-color);
 }
 #problem-section-container {
     display: flex;
@@ -107,6 +133,7 @@ html, body {
     height: 100%;
     width: 30%;
     & p {
+        letter-spacing: 2px;
         font-size: var(--timer-font-size);
     }
 }
@@ -116,29 +143,36 @@ html, body {
     width: 100%;
     & button {
         margin: 0 .2rem;
+        font-size: var(--timer-button-font-size);
+        padding: 2px;
     }
 }
 /*--- end navigation section ---*/
 #problem-statement-container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: var(--problem-statement-container-width);
     height: 100%;
 }
 #problem-category-container,
 #code-editor-container {
     height: auto;
-    border: 1px solid var(--statement-container-border-color);
+    border: 2px solid var(--statement-container-border-color);
+    background-color: var(--statement-container-bg-color);
 }
 #problem-category-container {
     width: var(--problem-category-container-width);
 }
+#problem-statement {
+    height: 100%;
+    width: 100%;
+    resize: none;
+}
 #code-editor-container {
     width: var(--code-editor-width);
-    padding: 1%;
 }
 #code-editor {
-    height: 90%;
+    height: 100%;
 }
 #code-editor-section-container {
     display: flex;
@@ -160,15 +194,17 @@ html, body {
 }
 #interviewer-comments {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    min-height: 30vh;
-    padding: 2px;
+    height: 40%;
+    width: 100%;
+    margin-top: .5rem;
 }
 #code-rating {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    background-color: var(--statement-container-bg-color);
+    height: auto;
 }
 .response-section {
     display: flex;
@@ -185,9 +221,12 @@ html, body {
 }
 .comment-section {
     height: 100%;
+    & label {
+        padding: 0 .2rem;
+    }
 }
 .comment {
+    resize: none;
     height: 100%;
-    border: 1px solid var(--statement-container-border-color);
-    padding: .2rem;
+    border: 2px solid var(--statement-container-border-color);
 }

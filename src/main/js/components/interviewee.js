@@ -14,10 +14,12 @@ const IntervieweePOV = (props) => {
 		contextmenu: false,
 		minimap: { enabled: false },
 		scrollbar: {
-			vertical: false,
-			horizontal: 'hidden',
-			useShadows: false
+			vertical:"hidden",
+			horizontal: "hidden",
 		},
+		overviewRulerLanes: 0,
+        hideCursorInOverviewRuler: true,
+		overviewRulerBorder: false,
 	}
 	/*--- End Editor Configuration ---*/
 	useEffect(() => {
@@ -32,7 +34,6 @@ const IntervieweePOV = (props) => {
 		<nav id="environment-settings-container">
 			<li>
 				<div id="problem-section-container">
-
 				</div>
 			</li>
 			<li>
