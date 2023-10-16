@@ -38,13 +38,15 @@ const IntervieweePOV = (props) => {
 			</li>
 			<li>
 				<div id="code-editor-section-container">
-					<select id="language-dropdown" onChange={(e) => {setLanguage(e.currentTarget.value)}}>
-						{Object.entries(languageId).map(([languageName, languageValue]) => {
-							return <option value={languageValue} key={languageName}>
-								{languageName}
-							</option>
-						})}
-					</select>
+					<div id="language-dropdown-container">
+						<select id="language-dropdown" onChange={(e) => {setLanguage(e.currentTarget.value)}}>
+							{Object.entries(languageId).map(([languageName, languageValue]) => {
+								return <option value={languageValue} key={languageName}>
+									{languageName}
+								</option>
+							})}
+						</select>
+					</div>
 				</div>
 			</li>
 		</nav>
