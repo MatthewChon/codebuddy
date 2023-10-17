@@ -58,4 +58,11 @@ const IntervieweePOV = (props) => {
 		</div>
 	</>
 }
+export const IntervieweeConnect = (props) => {
+	return <div id="interviewee-connect-container" className="connect-tab">
+		<span id="interviewer-connect-button"
+		 className="title connect-button button"
+		 onClick={() => props.connect(<IntervieweePOV />)}>Connect</span>
+	</div>
+}
 export default IntervieweePOV;

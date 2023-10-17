@@ -97,21 +97,9 @@ const InterviewerPOV = (props) => {
 			<div id="interviewer-comments">
 				<form id="code-rating" className="comment response-section">
 					<div className="rating-section">
-						<label for="algorithm-rating">Algorithm</label>
-						<select id="algorithm-rating">
-							<option hidden selected>Select rating</option>
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-						</select>
-						
-
-					</div>
-					<div className="rating-section">
-						<label for="coding-rating">Coding</label>
-						<select id="coding-rating">
-							<option hidden selected>Select rating</option>
+						<label htmlFor="algorithm-rating">Algorithm</label>
+						<select defaultValue={'default'} id="algorithm-rating">
+							<option value="default" hidden>Select rating</option>
 							<option>1</option>
 							<option>2</option>
 							<option>3</option>
@@ -119,9 +107,9 @@ const InterviewerPOV = (props) => {
 						</select>
 					</div>
 					<div className="rating-section">
-						<label for="communication-rating">Communication</label>
-						<select id="communication-rating">
-							<option hidden selected>Select rating</option>
+						<label htmlFor="coding-rating">Coding</label>
+						<select defaultValue={'default'}id="coding-rating">
+							<option value="default" hidden>Select rating</option>
 							<option>1</option>
 							<option>2</option>
 							<option>3</option>
@@ -129,9 +117,19 @@ const InterviewerPOV = (props) => {
 						</select>
 					</div>
 					<div className="rating-section">
-						<label for="problem-solving-rating">Problem Solving</label>
-						<select id="problem-solving-rating">
-							<option hidden selected>Select rating</option>
+						<label htmlFor="communication-rating">Communication</label>
+						<select defaultValue={"default"} id="communication-rating">
+							<option value="default" hidden>Select rating</option>
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+						</select>
+					</div>
+					<div className="rating-section">
+						<label htmlFor="problem-solving-rating">Problem Solving</label>
+						<select defaultValue={"default"} id="problem-solving-rating">
+							<option value="default" hidden>Select rating</option>
 							<option>1</option>
 							<option>2</option>
 							<option>3</option>
@@ -140,17 +138,23 @@ const InterviewerPOV = (props) => {
 					</div>
 				</form>
 				<div className="comment-section response-section">
-					<label for="compliment-comment">Excelled In:</label>
+					<label htmlFor="compliment-comment">Excelled In:</label>
 					<textarea id="compliment-comment" className="comment"/>
 				</div>
 				
 				<div className="comment-section response-section">
-					<label for="improvement-comment">Needs Improvement On:</label>
+					<label htmlFor="improvement-comment">Needs Improvement On:</label>
 					<textarea className="comment" />
 				</div>
 			</div>
 		</div>
-		
 	</>
+}
+export const InterviewerConnect = (props) => {
+	return <div id="interviewer-connect-container" className="connect-tab">
+		<span id="interviewer-connect-button"
+		 className="title connect-button button"
+		 onClick={() => props.connect(<InterviewerPOV />)}>Connect</span>
+	</div>
 }
 export default InterviewerPOV;

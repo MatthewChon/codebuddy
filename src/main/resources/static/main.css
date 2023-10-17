@@ -24,18 +24,28 @@ textarea {
 
     /*======= content container =======*/
     --content-container-bg-color: rgb(221, 224, 224);
-    /*--- end content container ---*/
-    
-    /*======= title page container =======*/
-    --title-page-section-border-color: rgb(30, 39, 46);
-    /*--- end title page container ---*/
-
-    /*======= content container =======*/
     --content-container-height: 95vh;
     --content-container-width: 97vw;
     --content-container-box-color: rgb(21, 21, 21);
     /*--- end content container ---*/
 
+    /*======= title page container =======*/
+    --title-page-selection-width: 40%;
+    --title-page-configuration-width: calc(100% - var(--title-page-selection-width));
+    --title-page-divider-color: rgb(0,0,0);
+    --title-page-divider-margin: 2rem;
+    
+    /*--- end title page container ---*/
+
+    /*======= app title =======*/
+    --app-title-font-size: 3rem;
+    --title-color: rgb(10, 10, 10);
+    /*--- end app title ---*/
+
+    /*======= title selection =======*/
+    --title-selection-hover-bg-color: rgb(194, 204, 205);
+    --title-selection-hover-font-color: rgb(166, 235, 246);
+    /*--- end title selection ---*/
     /*======= environment settings container =======*/
     --environment-settings-container-width: 100%;
     --environment-settings-container-height: 8%;
@@ -66,6 +76,11 @@ textarea {
     /*======= Programming Language dropdown =======*/
     --language-dropdown-min-height: clamp(1.2rem, 1vw, 5rem);
     /*--- End Programming Language dropdown ---*/
+
+    /*======= selected container =======*/
+    --selected-bg-color: rgb(81, 136, 208);
+    --selected-font-color: rgb(166, 235, 246);
+    /*--- end selected container ---*/
 }
 #app-container {
     display: flex;
@@ -89,25 +104,30 @@ textarea {
     box-shadow: 0 0 3px 4px var(--content-container-box-color);
 }
 /*--- end app container css ---*/
-
 #title-page-container {
-    min-height: 100%;
-    width: 100%;
-}
-#title-page-section-container {
     display: flex;
-    width: 100%;
-    min-height: 100%;
+    height: 100%;
 }
-.title-page-section {
+#title-page-selection-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 50%;
+    justify-content: space-evenly;
+    height: 100%;
+    width: var(--title-page-selection-width);
 }
-.title-page-content {
-    min-height: 40vh;
+#app-title {
+    font-size: var(--app-title-font-size);
+}
+#title-page-divider {
+    height: auto;
+    width: 1px;
+    background: var(--title-page-divider-color);
+    margin: var(--title-page-divider-margin) 0;
+}
+#title-page-configuration-setting {
+    height: 100%;
+    width: var(--title-page-configuration-width);
 }
 /*--- end title page css ---*/
 
@@ -147,6 +167,7 @@ textarea {
     }
 }
 /*--- end navigation section ---*/
+
 #problem-statement-container {
     display: flex;
     justify-content: space-between;
@@ -188,6 +209,12 @@ textarea {
     min-height: var(--language-dropdown-min-height);
     padding: 2px 10px;
 }
+#interviewer-connect-container {
+
+}
+#interviewee-connect-container {
+
+}
 /*--- end interviewer/interviewee section ---*/
 #interviewer-structure-container {
     display: flex;
@@ -208,6 +235,41 @@ textarea {
     justify-content: space-evenly;
     background-color: var(--statement-container-bg-color);
     height: auto;
+}
+/*--- end comment section ---*/
+.title {
+    text-transform: uppercase;
+    color: var(--title-color);
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1rem;
+}
+.title-selection {
+    font-size: 1.5rem;
+    letter-spacing: .5rem;
+    &:not(.selected):hover {
+        background-color: var(--title-selection-hover-bg-color);
+        color: var(--title-selection-hover-font-color);
+    }
+}
+.button {
+    padding: .5rem .75rem;
+    box-shadow: 0 0 1px 1px rgb(0,0,0);
+    border-radius: 15px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+.connect-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-evenly;
+    height: 100%;
+    width: 100%;
+}
+.connect-button {
+    letter-spacing: 0.1rem;
 }
 .response-section {
     display: flex;
@@ -232,4 +294,8 @@ textarea {
     resize: none;
     height: 100%;
     border: 2px solid var(--statement-container-border-color);
+}
+.selected {
+    background: var(--selected-bg-color);
+    color: var(--selected-font-color);
 }
