@@ -14,10 +14,12 @@ const IntervieweePOV = (props) => {
 		contextmenu: false,
 		minimap: { enabled: false },
 		scrollbar: {
-			vertical: false,
-			horizontal: 'hidden',
-			useShadows: false
+			vertical:"hidden",
+			horizontal: "hidden",
 		},
+		overviewRulerLanes: 0,
+        hideCursorInOverviewRuler: true,
+		overviewRulerBorder: false,
 	}
 	/*--- End Editor Configuration ---*/
 	useEffect(() => {
@@ -32,18 +34,19 @@ const IntervieweePOV = (props) => {
 		<nav id="environment-settings-container">
 			<li>
 				<div id="problem-section-container">
-
 				</div>
 			</li>
 			<li>
 				<div id="code-editor-section-container">
-					<select id="language-dropdown" onChange={(e) => {setLanguage(e.currentTarget.value)}}>
-						{Object.entries(languageId).map(([languageName, languageValue]) => {
-							return <option value={languageValue} key={languageName}>
-								{languageName}
-							</option>
-						})}
-					</select>
+					<div id="language-dropdown-container">
+						<select id="language-dropdown" onChange={(e) => {setLanguage(e.currentTarget.value)}}>
+							{Object.entries(languageId).map(([languageName, languageValue]) => {
+								return <option value={languageValue} key={languageName}>
+									{languageName}
+								</option>
+							})}
+						</select>
+					</div>
 				</div>
 			</li>
 		</nav>
@@ -54,5 +57,12 @@ const IntervieweePOV = (props) => {
 			</div>
 		</div>
 	</>
+}
+export const IntervieweeConnect = (props) => {
+	return <div id="interviewee-connect-container" className="connect-tab">
+		<span id="interviewer-connect-button"
+		 className="title connect-button button"
+		 onClick={() => props.connect(<IntervieweePOV />)}>Connect</span>
+	</div>
 }
 export default IntervieweePOV;
